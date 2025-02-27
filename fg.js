@@ -4,7 +4,7 @@ function lex_split(txt) {
 	return txt.split(/\"([^\"]*)\"|\S+/g)
 }
 let variables = {
-	ver: "1-pre2"
+	ver: "1-pre3 DO NOT USE"
 }
 let typo_hiearchy = {
 	"q": ["a","s","w"],
@@ -46,9 +46,12 @@ function test_value(val) {
 			while (i < sliced.length-1)  {
 				for (let key in variables) {
 					let guessed = ""
-					if (variables[key][i] == guessed) {
-						guess_proper += guessed
-						i += 1
+					let guesses = 0
+					for (let letter in typo_hiearchy[i]) {
+  					if (variables[key][] == guessed) {
+  						guess_proper += guessed
+  						i += 1
+  					}
 					}
 				}
 			}
